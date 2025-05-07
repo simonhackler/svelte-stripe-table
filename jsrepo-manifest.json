@@ -1,0 +1,140 @@
+{
+	"peerDependencies": {
+		"svelte": "5.x.x",
+		"tailwindcss": {
+			"version": "3.x.x",
+			"message": "Tailwindcss@v4 support is in progress see: https://github.com/huntabyte/shadcn-svelte/issues/1643"
+		}
+	},
+	"categories": [
+		{
+			"name": "ui",
+			"blocks": [
+				{
+					"name": "button",
+					"directory": "src/lib/components/ui/button",
+					"category": "ui",
+					"tests": false,
+					"subdirectory": true,
+					"list": false,
+					"files": [
+						"button.svelte",
+						"index.ts"
+					],
+					"localDependencies": [
+						"utils/utils"
+					],
+					"dependencies": [],
+					"devDependencies": [
+						"bits-ui@^1.4.6",
+						"tailwind-variants@^0.3.1"
+					],
+					"_imports_": {
+						"$lib/utils/utils.js": "{{utils/utils}}.js"
+					}
+				},
+				{
+					"name": "card",
+					"directory": "src/lib/components/ui/card",
+					"category": "ui",
+					"tests": false,
+					"subdirectory": true,
+					"list": false,
+					"files": [
+						"card-content.svelte",
+						"card-description.svelte",
+						"card-footer.svelte",
+						"card-header.svelte",
+						"card-title.svelte",
+						"card.svelte",
+						"index.ts"
+					],
+					"localDependencies": [
+						"utils/utils"
+					],
+					"dependencies": [],
+					"devDependencies": [
+						"bits-ui@^1.4.6"
+					],
+					"_imports_": {
+						"$lib/utils/utils.js": "{{utils/utils}}.js"
+					}
+				},
+				{
+					"name": "stripe-table",
+					"directory": "src/lib/components/ui/stripe-table",
+					"category": "ui",
+					"tests": false,
+					"subdirectory": true,
+					"list": true,
+					"files": [
+						"pricing-option.svelte",
+						"pricing-table.svelte"
+					],
+					"localDependencies": [
+						"ui/card",
+						"ui/button",
+						"ui/tabs"
+					],
+					"dependencies": [
+						"stripe@^18.1.0",
+						"@supabase/supabase-js"
+					],
+					"devDependencies": [],
+					"_imports_": {
+						"$lib/components/ui/card/index.js": "{{ui/card}}/index.js",
+						"$lib/components/ui/button": "{{ui/button}}",
+						"$lib/components/ui/tabs/index.js": "{{ui/tabs}}/index.js"
+					}
+				},
+				{
+					"name": "tabs",
+					"directory": "src/lib/components/ui/tabs",
+					"category": "ui",
+					"tests": false,
+					"subdirectory": true,
+					"list": false,
+					"files": [
+						"index.ts",
+						"tabs-content.svelte",
+						"tabs-list.svelte",
+						"tabs-trigger.svelte"
+					],
+					"localDependencies": [
+						"utils/utils"
+					],
+					"dependencies": [],
+					"devDependencies": [
+						"bits-ui@^1.4.6"
+					],
+					"_imports_": {
+						"$lib/utils/utils.js": "{{utils/utils}}.js"
+					}
+				}
+			]
+		},
+		{
+			"name": "utils",
+			"blocks": [
+				{
+					"name": "utils",
+					"directory": "src/lib/utils",
+					"category": "utils",
+					"tests": false,
+					"subdirectory": false,
+					"list": false,
+					"files": [
+						"utils.ts"
+					],
+					"localDependencies": [],
+					"_imports_": {},
+					"dependencies": [],
+					"devDependencies": [
+						"clsx@^2.1.1",
+						"tailwind-merge@^2.6.0"
+					]
+				}
+			]
+		}
+	]
+}
