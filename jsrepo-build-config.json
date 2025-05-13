@@ -1,29 +1,28 @@
 {
 	"$schema": "https://unpkg.com/jsrepo@2.0.2/schemas/registry-config.json",
 	"readme": "README.md",
-    "dirs": ["./src/lib/components", "./src/lib", "./src"],
+	"dirs": ["./src/lib", "./src", "./src/lib/components"],
 	"doNotListBlocks": [],
 	"doNotListCategories": [],
 	"listBlocks": ["stripe-table", "pricing-table"],
 	"listCategories": [],
-	"excludeDeps": [],
-	"includeBlocks": [],
-    "includeCategories": ["ui", "utils", "routes"],
+	"includeBlocks": ["pricing-table", "stripe-table", "utils", "button", "card", "tabs"],
+	"includeCategories": ["page", "ui", "utils"],
 	"excludeBlocks": [],
 	"excludeCategories": [],
 	"preview": false,
-    "peerDependencies": {
+	"peerDependencies": {
 		"svelte": "5.x.x",
 		"tailwindcss": {
 			"version": "3.x.x",
 			"message": "Tailwindcss@v4 support is in progress see: https://github.com/huntabyte/shadcn-svelte/issues/1643"
 		}
 	},
-    "excludeDeps": ["svelte", "@sveltejs/kit"],
-    "rules": {
+	"excludeDeps": ["svelte", "@sveltejs/kit"],
+	"rules": {
 		"no-category-index-file-dependency": "warn",
 		"no-unpinned-dependency": "warn",
-		"require-local-dependency-exists": "warn",
+		"require-local-dependency-exists": "error",
 		"max-local-dependencies": ["warn", 10],
 		"no-circular-dependency": "error",
 		"no-unused-block": "warn",

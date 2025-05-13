@@ -8,6 +8,44 @@
 	},
 	"categories": [
 		{
+			"name": "utils",
+			"blocks": [
+				{
+					"name": "utils",
+					"directory": "src/lib/utils",
+					"category": "utils",
+					"tests": false,
+					"subdirectory": false,
+					"list": false,
+					"files": ["utils.ts"],
+					"localDependencies": [],
+					"_imports_": {},
+					"dependencies": [],
+					"devDependencies": ["clsx@^2.1.1", "tailwind-merge@^2.6.0"]
+				}
+			]
+		},
+		{
+			"name": "page",
+			"blocks": [
+				{
+					"name": "pricing-table",
+					"directory": "src/lib/components/page/pricing-table",
+					"category": "page",
+					"tests": false,
+					"subdirectory": true,
+					"list": true,
+					"files": ["+page.server.ts", "+page.svelte"],
+					"localDependencies": ["ui/stripe-table"],
+					"dependencies": ["stripe@^18.1.0"],
+					"devDependencies": [],
+					"_imports_": {
+						"$lib/components/ui/stripe-table/pricing-table.svelte": "{{ui/stripe-table}}/pricing-table.svelte"
+					}
+				}
+			]
+		},
+		{
 			"name": "ui",
 			"blocks": [
 				{
@@ -17,18 +55,10 @@
 					"tests": false,
 					"subdirectory": true,
 					"list": false,
-					"files": [
-						"button.svelte",
-						"index.ts"
-					],
-					"localDependencies": [
-						"utils/utils"
-					],
+					"files": ["button.svelte", "index.ts"],
+					"localDependencies": ["utils/utils"],
 					"dependencies": [],
-					"devDependencies": [
-						"bits-ui@^1.4.6",
-						"tailwind-variants@^0.3.1"
-					],
+					"devDependencies": ["bits-ui@^1.4.6", "tailwind-variants@^0.3.1"],
 					"_imports_": {
 						"$lib/utils/utils.js": "{{utils/utils}}.js"
 					}
@@ -49,13 +79,9 @@
 						"card.svelte",
 						"index.ts"
 					],
-					"localDependencies": [
-						"utils/utils"
-					],
+					"localDependencies": ["utils/utils"],
 					"dependencies": [],
-					"devDependencies": [
-						"bits-ui@^1.4.6"
-					],
+					"devDependencies": ["bits-ui@^1.4.6"],
 					"_imports_": {
 						"$lib/utils/utils.js": "{{utils/utils}}.js"
 					}
@@ -67,18 +93,9 @@
 					"tests": false,
 					"subdirectory": true,
 					"list": true,
-					"files": [
-						"pricing-option.svelte",
-						"pricing-table.svelte"
-					],
-					"localDependencies": [
-						"ui/card",
-						"ui/button",
-						"ui/tabs"
-					],
-					"dependencies": [
-						"stripe@^18.1.0"
-					],
+					"files": ["pricing-option.svelte", "pricing-table.svelte"],
+					"localDependencies": ["ui/card", "ui/button", "ui/tabs"],
+					"dependencies": ["stripe@^18.1.0"],
 					"devDependencies": [],
 					"_imports_": {
 						"$lib/components/ui/card/index.js": "{{ui/card}}/index.js",
@@ -93,71 +110,12 @@
 					"tests": false,
 					"subdirectory": true,
 					"list": false,
-					"files": [
-						"index.ts",
-						"tabs-content.svelte",
-						"tabs-list.svelte",
-						"tabs-trigger.svelte"
-					],
-					"localDependencies": [
-						"utils/utils"
-					],
+					"files": ["index.ts", "tabs-content.svelte", "tabs-list.svelte", "tabs-trigger.svelte"],
+					"localDependencies": ["utils/utils"],
 					"dependencies": [],
-					"devDependencies": [
-						"bits-ui@^1.4.6"
-					],
+					"devDependencies": ["bits-ui@^1.4.6"],
 					"_imports_": {
 						"$lib/utils/utils.js": "{{utils/utils}}.js"
-					}
-				}
-			]
-		},
-		{
-			"name": "utils",
-			"blocks": [
-				{
-					"name": "utils",
-					"directory": "src/lib/utils",
-					"category": "utils",
-					"tests": false,
-					"subdirectory": false,
-					"list": false,
-					"files": [
-						"utils.ts"
-					],
-					"localDependencies": [],
-					"_imports_": {},
-					"dependencies": [],
-					"devDependencies": [
-						"clsx@^2.1.1",
-						"tailwind-merge@^2.6.0"
-					]
-				}
-			]
-		},
-		{
-			"name": "routes",
-			"blocks": [
-				{
-					"name": "pricing-table",
-					"directory": "src/routes/pricing-table",
-					"category": "routes",
-					"tests": false,
-					"subdirectory": true,
-					"list": true,
-					"files": [
-						"+page.server.ts",
-						"+page.svelte"
-					],
-					"localDependencies": [
-						"lib/components"
-					],
-					"dependencies": [
-						"stripe@^18.1.0"
-					],
-					"devDependencies": [],
-					"_imports_": {
-						"$lib/components/ui/stripe-table/pricing-table.svelte": "{{lib/components}}/ui/stripe-table/pricing-table.svelte"
 					}
 				}
 			]

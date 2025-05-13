@@ -55,7 +55,13 @@
 	<Tabs.Content value="monthly">
 		<div class="grid gap-2 md:grid-cols-3">
 			{#each monthly as price}
-				<PricingOption {price} {locale} {currency} activeSubProductId={subProductId} class="w-[400px]"/>
+				<PricingOption
+					{price}
+					{locale}
+					{currency}
+					activeSubProductId={subProductId}
+					class="w-[400px]"
+				/>
 			{/each}
 		</div>
 	</Tabs.Content>

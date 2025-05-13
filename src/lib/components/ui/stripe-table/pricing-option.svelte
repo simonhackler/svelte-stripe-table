@@ -5,7 +5,7 @@
 
 	interface Props {
 		price: Stripe.Price;
-        class?: string;
+		class?: string;
 		locale?: string;
 		activeSubProductId?: string | null;
 		currency?: string;
@@ -24,14 +24,14 @@
 		currencyFormat = currency;
 	}
 
-    // This could be moved outside the component
-    const formattedPrice = new Intl.NumberFormat(locale, {
+	// This could be moved outside the component
+	const formattedPrice = new Intl.NumberFormat(locale, {
 		style: 'currency',
 		currency: currencyFormat.toUpperCase(),
 		currencyDisplay: 'narrowSymbol',
 		minimumFractionDigits: 0,
 		maximumFractionDigits: 2
-    }).format(unitAmount / 100);
+	}).format(unitAmount / 100);
 </script>
 
 <Card.Root class={className}>
