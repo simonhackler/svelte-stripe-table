@@ -8,29 +8,6 @@
 	},
 	"categories": [
 		{
-			"name": "utils",
-			"blocks": [
-				{
-					"name": "utils",
-					"directory": "src/lib/utils",
-					"category": "utils",
-					"tests": false,
-					"subdirectory": false,
-					"list": false,
-					"files": [
-						"utils.ts"
-					],
-					"localDependencies": [],
-					"_imports_": {},
-					"dependencies": [],
-					"devDependencies": [
-						"clsx@^2.1.1",
-						"tailwind-merge@^2.6.0"
-					]
-				}
-			]
-		},
-		{
 			"name": "page",
 			"blocks": [
 				{
@@ -159,6 +136,29 @@
 					"_imports_": {
 						"$lib/utils/utils.js": "{{utils/utils}}.js"
 					}
+				}
+			]
+		},
+		{
+			"name": "utils",
+			"blocks": [
+				{
+					"name": "utils",
+					"directory": "src/lib/utils",
+					"category": "utils",
+					"tests": false,
+					"subdirectory": false,
+					"list": false,
+					"files": [
+						"utils.ts"
+					],
+					"localDependencies": [],
+					"_imports_": {},
+					"dependencies": [],
+					"devDependencies": [
+						"clsx@^2.1.1",
+						"tailwind-merge@^2.6.0"
+					]
 				}
 			]
 		}
