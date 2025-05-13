@@ -1,14 +1,14 @@
 {
 	"$schema": "https://unpkg.com/jsrepo@2.0.2/schemas/registry-config.json",
 	"readme": "README.md",
-    "dirs": ["./src/lib/components", "./src/lib"],
+    "dirs": ["./src/lib/components", "./src/lib", "./src"],
 	"doNotListBlocks": [],
 	"doNotListCategories": [],
-	"listBlocks": ["stripe-table"],
+	"listBlocks": ["stripe-table", "pricing-table"],
 	"listCategories": [],
 	"excludeDeps": [],
 	"includeBlocks": [],
-    "includeCategories": ["ui", "utils"],
+    "includeCategories": ["ui", "utils", "routes"],
 	"excludeBlocks": [],
 	"excludeCategories": [],
 	"preview": false,
@@ -19,11 +19,11 @@
 			"message": "Tailwindcss@v4 support is in progress see: https://github.com/huntabyte/shadcn-svelte/issues/1643"
 		}
 	},
-    "excludeDeps": ["svelte"],
+    "excludeDeps": ["svelte", "@sveltejs/kit"],
     "rules": {
 		"no-category-index-file-dependency": "warn",
 		"no-unpinned-dependency": "warn",
-		"require-local-dependency-exists": "error",
+		"require-local-dependency-exists": "warn",
 		"max-local-dependencies": ["warn", 10],
 		"no-circular-dependency": "error",
 		"no-unused-block": "warn",

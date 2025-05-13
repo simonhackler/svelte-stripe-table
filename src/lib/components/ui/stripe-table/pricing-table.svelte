@@ -8,12 +8,10 @@
 		locale: string;
 		activeSub?: Stripe.Subscription | null;
 		currency?: string;
-		user?: User | null;
 	}
-	let { prices, activeSub, locale, currency, user }: Props = $props();
+	let { prices, activeSub, locale, currency }: Props = $props();
 
 	let subProductId = activeSub?.items.data[0].plan.product as string | null;
-	const signedIn = user != null && !user.is_anonymous;
 
 	const oneTime = prices
 		.filter((price) => {
@@ -57,14 +55,14 @@
 	<Tabs.Content value="monthly">
 		<div class="grid gap-2 md:grid-cols-3">
 			{#each monthly as price}
-				<PricingOption {price} {locale} {currency} {signedIn} activeSubProductId={subProductId} />
+				<PricingOption {price} {locale} {currency} activeSubProductId={subProductId} class="w-[400px]"/>
 			{/each}
 		</div>
 	</Tabs.Content>
 	<Tabs.Content value="annually">
 		<div class="grid gap-2 md:grid-cols-3">
 			{#each annually as price}
-				<PricingOption {price} {locale} {currency} {signedIn} activeSubProductId={subProductId} />
+				<PricingOption {price} {locale} {currency} activeSubProductId={subProductId} />
 			{/each}
 		</div>
 	</Tabs.Content>

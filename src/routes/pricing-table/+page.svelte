@@ -1,10 +1,9 @@
 <script lang="ts">
 	import PricingTable from '$lib/components/ui/stripe-table/pricing-table.svelte';
 
-
-  let { data, form } = $props();
+    let { data } = $props();
 </script>
 
 <main class="flex w-full justify-center">
-  <PricingTable {...data} />
+  <PricingTable {...data} currency="eur"/>
 </main>

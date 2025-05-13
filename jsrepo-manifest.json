@@ -77,8 +77,7 @@
 						"ui/tabs"
 					],
 					"dependencies": [
-						"stripe@^18.1.0",
-						"@supabase/supabase-js"
+						"stripe@^18.1.0"
 					],
 					"devDependencies": [],
 					"_imports_": {
@@ -133,6 +132,33 @@
 						"clsx@^2.1.1",
 						"tailwind-merge@^2.6.0"
 					]
+				}
+			]
+		},
+		{
+			"name": "routes",
+			"blocks": [
+				{
+					"name": "pricing-table",
+					"directory": "src/routes/pricing-table",
+					"category": "routes",
+					"tests": false,
+					"subdirectory": true,
+					"list": true,
+					"files": [
+						"+page.server.ts",
+						"+page.svelte"
+					],
+					"localDependencies": [
+						"lib/components"
+					],
+					"dependencies": [
+						"stripe@^18.1.0"
+					],
+					"devDependencies": [],
+					"_imports_": {
+						"$lib/components/ui/stripe-table/pricing-table.svelte": "{{lib/components}}/ui/stripe-table/pricing-table.svelte"
+					}
 				}
 			]
 		}

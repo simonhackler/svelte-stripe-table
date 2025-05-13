@@ -9,7 +9,6 @@ const stripe = new Stripe(STRIPE_KEY, {
     apiVersion: '2025-04-30.basil'
 });
 
-
 export const load: PageServerLoad = async ({ request, fetch }) => {
     const countryCode = request.headers.get('x-vercel-ip-country') ?? '';
 
@@ -50,7 +49,7 @@ export const load: PageServerLoad = async ({ request, fetch }) => {
 export const actions: Actions = {
     checkout: async ({ url, request }) => {
         const applicationUserId = undefined;
-        const [form_data, customerId] = await Promise.all([request.formData(), '']);
+        const [form_data, customerId] = await Promise.all([request.formData(), undefined]);
 
         const priceId = form_data.get('price') as string;
         const mode = form_data.get('mode') as string;
@@ -75,6 +74,7 @@ export const actions: Actions = {
             automatic_tax: { enabled: true },
             client_reference_id: applicationUserId,
             allow_promotion_codes: true,
+            customer: customerId
         };
 
         if (mode === 'subscription') {
@@ -94,18 +94,10 @@ export const actions: Actions = {
         }
 
         try {
-            if (customerId) {
-                session = await stripe.checkout.sessions.create({
-                    mode,
-                    ...stripeProperties,
-                    customer: customerId
-                });
-            } else {
-                session = await stripe.checkout.sessions.create({
-                    mode,
-                    ...stripeProperties,
-                });
-            }
+            session = await stripe.checkout.sessions.create({
+                mode,
+                ...stripeProperties,
+            });
         } catch (err) {
             console.error('> Stripe rawType:', err.rawType);
             console.error('> Stripe message:', err.message);
