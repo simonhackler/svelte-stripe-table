@@ -136,29 +136,28 @@
 			]
 		},
 		{
-			"name": "routes",
+			"name": "pricing-table",
 			"blocks": [
 				{
-					"name": "pricing-table",
+					"name": "+page.server",
 					"directory": "src/routes/pricing-table",
-					"category": "routes",
+					"category": "pricing-table",
 					"tests": false,
-					"subdirectory": true,
+					"subdirectory": false,
 					"list": true,
 					"files": [
-						"+page.server.ts",
-						"+page.svelte"
+						"+page.server.ts"
 					],
 					"localDependencies": [
-						"lib/components"
+						"pricing-table/$types"
 					],
+					"_imports_": {
+						"./$types": "{{pricing-table/$types}}"
+					},
 					"dependencies": [
 						"stripe@^18.1.0"
 					],
-					"devDependencies": [],
-					"_imports_": {
-						"$lib/components/ui/stripe-table/pricing-table.svelte": "{{lib/components}}/ui/stripe-table/pricing-table.svelte"
-					}
+					"devDependencies": []
 				}
 			]
 		}
