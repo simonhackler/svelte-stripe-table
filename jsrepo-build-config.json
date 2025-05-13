@@ -6,7 +6,7 @@
 	"doNotListCategories": [],
 	"listBlocks": ["stripe-table", "pricing-table"],
 	"listCategories": [],
-	"includeBlocks": ["pricing-table", "stripe-table", "utils", "button", "card", "tabs"],
+	"includeBlocks": [],
 	"includeCategories": ["page", "ui", "utils"],
 	"excludeBlocks": [],
 	"excludeCategories": [],
