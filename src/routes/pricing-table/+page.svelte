@@ -4,6 +4,6 @@
     let { data } = $props();
 </script>
 
-<main class="flex w-full justify-center">
+<main class="flex w-full justify-center p-8">
   <PricingTable {...data} currency="eur"/>
 </main>

@@ -39,7 +39,7 @@
 </script>
 
 <Tabs.Root value="monthly">
-	<div class="flex w-full justify-center">
+	<div class="flex w-full justify-center mb-4">
 		<Tabs.List>
 			{#if monthly.length > 0}
 				<Tabs.Trigger value="monthly">Monthly</Tabs.Trigger>
@@ -62,14 +62,14 @@
 	<Tabs.Content value="annually">
 		<div class="grid gap-2 md:grid-cols-3">
 			{#each annually as price}
-				<PricingOption {price} {locale} {currency} activeSubProductId={subProductId} />
+				<PricingOption {price} {locale} {currency} activeSubProductId={subProductId} class="w-[400px]"/>
 			{/each}
 		</div>
 	</Tabs.Content>
 	<Tabs.Content value="one-time">
 		<div class="grid gap-2 md:grid-cols-3">
 			{#each oneTime as price}
-				<PricingOption {price} {locale} {currency} />
+				<PricingOption {price} {locale} {currency} class="w-[400px]"/>
 			{/each}
 		</div>
 	</Tabs.Content>

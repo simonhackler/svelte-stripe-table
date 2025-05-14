@@ -1,10 +1,10 @@
 {
 	"$schema": "https://unpkg.com/jsrepo@2.0.2/schemas/registry-config.json",
 	"readme": "README.md",
-    "dirs": ["./src/lib/components", "./src/lib", "./src/routes"],
+    "dirs": ["./src/lib/components", "./src/lib" ],
 	"doNotListBlocks": [],
 	"doNotListCategories": [],
-	"listBlocks": ["stripe-table", "+page.server", "+page.svelte"],
+	"listBlocks": ["stripe-table", "stripe-table-route"],
 	"listCategories": [],
 	"excludeDeps": [],
 	"includeBlocks": [],

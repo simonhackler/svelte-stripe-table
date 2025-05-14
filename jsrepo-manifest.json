@@ -134,32 +134,6 @@
 					]
 				}
 			]
-		},
-		{
-			"name": "pricing-table",
-			"blocks": [
-				{
-					"name": "+page.server",
-					"directory": "src/routes/pricing-table",
-					"category": "pricing-table",
-					"tests": false,
-					"subdirectory": false,
-					"list": true,
-					"files": [
-						"+page.server.ts"
-					],
-					"localDependencies": [
-						"pricing-table/$types"
-					],
-					"_imports_": {
-						"./$types": "{{pricing-table/$types}}"
-					},
-					"dependencies": [
-						"stripe@^18.1.0"
-					],
-					"devDependencies": []
-				}
-			]
 		}
 	]
 }
