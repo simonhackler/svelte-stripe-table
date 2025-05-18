@@ -1,14 +1,6 @@
 # Svelte Stripe Table Components
 
-This repository contains Svelte components for easily displaying Stripe pricing tables in your Svelte applications.
-
-## Features
-
-*   Display one-time, monthly, and annually recurring prices from Stripe.
-*   Automatic tabbed navigation for different billing intervals (Monthly, Annually, One-time).
-*   Customizable locale and currency display.
-*   Highlights active subscriptions.
-*   Integrates with Stripe product metadata for additional display options (e.g., "pill" text).
+This repository contains Svelte components for easily displaying a Stripe pricing table in your Svelte application.
 
 ## Components
 
@@ -40,33 +32,25 @@ This is the main component to render the entire pricing table.
 <PricingTable prices={prices} activeSub={activeSubscription} locale="en-GB" currency="GBP" />
 ```
 
-### `PricingOption` / `PricingOptionButtonMiddle` / `PricingOptionButtonDown`
+## Stripe Dashboard first
+The idea is to configure everything inside of stripe. 
 
-These components are used internally by `PricingTable` to render individual pricing plans. You can also use `PricingOption` for more custom layouts.
+To display a pill above a product add a `pill` metadata entry to the product.
 
-**`PricingOption` Props:**
-
-*   `price`: A `Stripe.Price` object.
-*   `content`: A Svelte snippet for custom rendering of the content within the pricing card. It receives `product`, `price`, `buttonText`, and `formattedPrice` as parameters.
-*   `class`: (Optional) CSS classes to apply to the card.
-*   `locale`: (Optional) Locale for currency formatting.
-*   `activeSubProductId`: (Optional) The ID of the product associated with the active subscription.
-*   `currency`: (Optional) Specific currency to display.
-
-### `FeatureList`
-
-Displays marketing features associated with a Stripe Product.
-
-**Props:**
-
-*   `features`: An array of `Stripe.Product.marketing_features`.
+To display the feature list add the `marketing_features`.
 
 ## Setup
 
-1.  Install the necessary dependencies (ensure you have Stripe's JS library if you're interacting with Stripe.js).
-2.  Import the components into your Svelte files.
-3.  Fetch your Stripe Price objects (which should include Product data expanded) from your backend.
-4.  Pass the data to the `PricingTable` component.
-5.  Refer to `src/routes/pricing-table` for a reference implementation.
+## Install with jsrepo
 
-Make sure your Stripe Products have `marketing_features` set if you want to display a list of features for each plan. You can also add a `pill` entry in the product's `metadata` to display a small badge above a pricing option (e.g., "Most Popular").
+**Initialize jsrepo**:
+
+```bash
+jsrepo init @https://github.com/simonhackler/svelte-stripe-table
+```
+
+**Install components**:
+
+```bash
+jsrepo add 
+```
