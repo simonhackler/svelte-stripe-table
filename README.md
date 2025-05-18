@@ -8,15 +8,6 @@ This repository contains Svelte components for easily displaying a Stripe pricin
 
 ![hero](/static/screenshot.jpg)
 
-This is the main component to render the entire pricing table.
-
-**Props:**
-
-*   `prices`: An array of `Stripe.Price` objects.
-*   `locale`: (Optional) The locale string for formatting currency (e.g., 'en-US', 'de-DE'). Defaults to 'en-US'.
-*   `activeSub`: (Optional) A `Stripe.Subscription` object representing the currently active subscription. This helps in highlighting the active plan.
-*   `currency`: (Optional) A string to force a specific currency display if available in `price.currency_options`.
-
 **Example Usage:**
 
 ```svelte
