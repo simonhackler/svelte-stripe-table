@@ -68,21 +68,30 @@
 					"subdirectory": true,
 					"list": true,
 					"files": [
+						"feature-list.svelte",
+						"pricing-form.svelte",
+						"pricing-option-button-down.svelte",
+						"pricing-option-button-middle.svelte",
 						"pricing-option.svelte",
-						"pricing-table.svelte"
+						"pricing-table.svelte",
+						"types.ts"
 					],
 					"localDependencies": [
-						"ui/card",
 						"ui/button",
+						"ui/card",
+						"utils/utils",
 						"ui/tabs"
 					],
 					"dependencies": [
 						"stripe@^18.1.0"
 					],
-					"devDependencies": [],
+					"devDependencies": [
+						"@lucide/svelte@^0.510.0"
+					],
 					"_imports_": {
-						"$lib/components/ui/card/index.js": "{{ui/card}}/index.js",
 						"$lib/components/ui/button": "{{ui/button}}",
+						"$lib/components/ui/card/index.js": "{{ui/card}}/index.js",
+						"$lib/utils/utils": "{{utils/utils}}",
 						"$lib/components/ui/tabs/index.js": "{{ui/tabs}}/index.js"
 					}
 				},

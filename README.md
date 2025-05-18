@@ -67,5 +67,6 @@ Displays marketing features associated with a Stripe Product.
 2.  Import the components into your Svelte files.
 3.  Fetch your Stripe Price objects (which should include Product data expanded) from your backend.
 4.  Pass the data to the `PricingTable` component.
+5.  Refer to `src/routes/pricing-table` for a reference implementation.
 
 Make sure your Stripe Products have `marketing_features` set if you want to display a list of features for each plan. You can also add a `pill` entry in the product's `metadata` to display a small badge above a pricing option (e.g., "Most Popular").
