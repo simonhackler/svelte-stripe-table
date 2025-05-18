@@ -1,18 +1,20 @@
 <script lang="ts">
 	import Stripe from 'stripe';
 	import * as Card from '$lib/components/ui/card/index.js';
-	import { Button } from '$lib/components/ui/button';
-	import Check from '@lucide/svelte/icons/check';
 	import { cn } from '$lib/utils/utils';
+	import PricingForm from './pricing-form.svelte';
+	import FeatureList from './feature-list.svelte'; // Added import for FeatureList
+	import type { Snippet } from 'svelte';
 
 	interface Props {
 		price: Stripe.Price;
+        content: Snippet<[Stripe.Product, Stripe.Price, string, string]>;
 		class?: string;
 		locale?: string;
 		activeSubProductId?: string | null;
 		currency?: string;
 	}
-	let { price, class: className, locale = 'en-US', activeSubProductId, currency }: Props = $props();
+	let { price, content, class: className, locale = 'en-US', activeSubProductId, currency }: Props = $props();
 
 	const recurring = price.recurring != null;
 	const product = price.product as Stripe.Product;
@@ -36,7 +38,8 @@
 	}).format(unitAmount / 100);
 </script>
 
-<Card.Root class={cn(className, 'relative flex flex-col justify-between gap-4')}>
+{#snippet mainContent(product: Stripe.Product, price: Stripe.Price, buttonText: string)}
+	<!-- Add the pill metadata to a stripe product to display a pill above the pricing option -->
 	{#if product.metadata?.pill && product.metadata.pill != ''}
 		<span
 			class="absolute inset-x-0 -top-3 mx-auto flex h-6 w-fit items-center rounded-full bg-secondary px-3 py-1 text-xs font-medium ring-1 ring-inset ring-white/20 ring-offset-1 ring-offset-gray-950/5"
@@ -51,23 +54,16 @@
 		<span class="text-2xl font-bold">
 			{formattedPrice}
 		</span>
-		{#if recurring}
+		{#if price.recurring}
 			<span class="text-sm text-slate-400">/{price.recurring?.interval}</span>
 		{/if}
-		<form action="?/checkout" method="POST">
-			<input type="hidden" name="price" value={price.id} />
-			<input type="hidden" name="mode" value={recurring ? 'subscription' : 'payment'} />
-			<Button variant="default" class="w-full" type="submit">{buttonText}</Button>
-		</form>
+		<PricingForm priceId={price.id} mode={recurring ? 'subscription' : 'payment'} {buttonText} />
 	</Card.Content>
-	<Card.Footer class="flex-grow">
-		<ul class="text-sm">
-			{#each product.marketing_features as feature}
-				<li class="flex items-center gap-2">
-					<Check class="size-3" />
-					<p>{feature.name}</p>
-				</li>
-			{/each}
-		</ul>
+	<Card.Footer>
+		<FeatureList features={product.marketing_features} />
 	</Card.Footer>
+{/snippet}
+
+<Card.Root class={cn(className, 'relative')}>
+    {@render content(product, price, buttonText, formattedPrice)}
 </Card.Root>

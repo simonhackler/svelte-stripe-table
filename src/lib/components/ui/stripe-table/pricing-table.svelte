@@ -1,7 +1,8 @@
 <script lang="ts">
 	import * as Tabs from '$lib/components/ui/tabs/index.js';
 	import Stripe from 'stripe';
-	import PricingOption from './pricing-option.svelte';
+	import PricingOptionButtonDown from './pricing-option-button-down.svelte';
+	import PricingOptionButtonMiddle from './pricing-option-button-middle.svelte';
 
 	interface Props {
 		prices: Stripe.Price[];
@@ -39,7 +40,7 @@
 </script>
 
 <Tabs.Root value="monthly">
-	<div class="flex w-full justify-center mb-4">
+	<div class="mb-4 flex w-full justify-center">
 		<Tabs.List>
 			{#if monthly.length > 0}
 				<Tabs.Trigger value="monthly">Monthly</Tabs.Trigger>
@@ -52,25 +53,22 @@
 			{/if}
 		</Tabs.List>
 	</div>
-	<Tabs.Content value="monthly">
-		<div class="grid gap-2 md:grid-cols-3">
-			{#each monthly as price}
-				<PricingOption {price} {locale} {currency} activeSubProductId={subProductId} class="w-[400px]"/>
-			{/each}
-		</div>
-	</Tabs.Content>
-	<Tabs.Content value="annually">
-		<div class="grid gap-2 md:grid-cols-3">
-			{#each annually as price}
-				<PricingOption {price} {locale} {currency} activeSubProductId={subProductId} class="w-[400px]"/>
-			{/each}
-		</div>
-	</Tabs.Content>
-	<Tabs.Content value="one-time">
-		<div class="grid gap-2 md:grid-cols-3">
-			{#each oneTime as price}
-				<PricingOption {price} {locale} {currency} class="w-[400px]"/>
-			{/each}
-		</div>
-	</Tabs.Content>
+	{#snippet pricingList(prices: Stripe.Price[], type: 'monthly' | 'annually' | 'one-time')}
+		<Tabs.Content value={type}>
+			<div class="grid gap-4 md:grid-cols-3 md:grid-rows-[repeat(3,auto)] md:gap-y-0 xl:w-[1200px]">
+				{#each prices as price}
+					<PricingOptionButtonMiddle
+						{price}
+						{locale}
+						{currency}
+						activeSubProductId={subProductId}
+						class="row-span-3 grid grid-cols-subgrid grid-rows-subgrid"
+					/>
+				{/each}
+			</div>
+		</Tabs.Content>
+	{/snippet}
+	{@render pricingList(monthly, 'monthly')}
+	{@render pricingList(annually, 'annually')}
+	{@render pricingList(oneTime, 'one-time')}
 </Tabs.Root>
