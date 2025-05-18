@@ -6,6 +6,8 @@ This repository contains Svelte components for easily displaying a Stripe pricin
 
 ### `PricingTable`
 
+![hero](/static/screenshot.jpg)
+
 This is the main component to render the entire pricing table.
 
 **Props:**
@@ -31,6 +33,8 @@ This is the main component to render the entire pricing table.
 
 <PricingTable prices={prices} activeSub={activeSubscription} locale="en-GB" currency="GBP" />
 ```
+
+For a reference implementation with stripe checkout see src/routes/pricing-table
 
 ## Stripe Dashboard first
 The idea is to configure everything inside of stripe. 
